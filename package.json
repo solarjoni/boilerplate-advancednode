@@ -19,7 +19,8 @@
     "pug": "^3.0.0",
     "passport": "^0.3.2",
     "express-session": "^1.15.0",
-    "passport-local": "latest"
+    "passport-local": "latest",
+    "bcrypt": "latest"
   },
   "repository": {
     "type": "git",

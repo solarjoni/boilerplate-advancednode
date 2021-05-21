@@ -40,12 +40,12 @@ module.exports = function(app, myDataBase) {
     function (accessToken, refreshToken, profile, cb) {
       console.log(profile);
       // Database logic here with callback containing our user object
-    myDataBase.findAndModify(
+    myDataBase.findOneAndUpdate(
         { id: profile.id },
-        {},
         {
           $setOnInsert: {
             id: profile.id,
+            username: profile.login,
             name: profile.displayName || 'John Doe',
             photo: profile.photos[0].value || '',
             email: Array.isArray(profile.emails) ? profile.emails[0].value : 'No public email',

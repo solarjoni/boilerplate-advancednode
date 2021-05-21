@@ -20,10 +20,10 @@ module.exports = function(app, myDataBase) {
       }
     );
   app.route("/profile").get(ensureAuthenticated, (req, res) => {
-    res.render("pug/profile", { username: req.user.username });
+    res.render(process.cwd() + "/views/profile", { username: req.user.username });
   });
   app.route("/chat").get(ensureAuthenticated, (req, res) => {
-    res.render("pug/chat", { user: req.user });
+    res.render(process.cwd() + "/views/chat", { user: req.user });
   });
   app.route("/logout").get((req, res) => {
     req.logout();

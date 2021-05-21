@@ -24,7 +24,7 @@ module.exports = function(app, myDataBase) {
         if (!user) {
           return done(null, false);
         }
-        if (password !== user.password) {
+        if (!bcrypt.compareSync(password, user.password)) {
           return done(null, false);
         }
         return done(null, user);
